@@ -26,6 +26,13 @@ namespace AutoTradingSystem
         {
             if (e.nErrCode == 0) /// 이벤트 매개변수를 통해서 핸들러 함수를 받아옴
             {
+                string acountlist = axKHOpenAPI1.GetLoginInfo("ACCLIST"); // 로그인 정보 가져오기
+                string[] account = acountlist.Split(';');  // 계좌번호 문자열을 나눠 배열로 담음
+
+                for (int i = 0; i < account.Length; i++)
+                {
+                    accountComboBox.Items.Add(account[i]);
+                }
 
             }
             else
