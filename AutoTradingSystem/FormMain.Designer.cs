@@ -32,14 +32,14 @@ namespace AutoTradingSystem
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.idLabel = new System.Windows.Forms.Label();
-            this.serverLabel = new System.Windows.Forms.Label();
-            this.accountComboBox = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.serverLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.accountComboBox = new System.Windows.Forms.ComboBox();
+            this.idLabel = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +52,6 @@ namespace AutoTradingSystem
             this.axKHOpenAPI1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axKHOpenAPI1.OcxState")));
             this.axKHOpenAPI1.Size = new System.Drawing.Size(100, 50);
             this.axKHOpenAPI1.TabIndex = 0;
-            this.axKHOpenAPI1.OnEventConnect += new AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEventHandler(this.onEventConnect);
             // 
             // tableLayoutPanel1
             // 
@@ -80,31 +79,19 @@ namespace AutoTradingSystem
             this.tableLayoutPanel1.Size = new System.Drawing.Size(209, 113);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // nameLabel
+            // textBox4
             // 
-            this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(109, 30);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(96, 28);
-            this.nameLabel.TabIndex = 2;
-            this.nameLabel.Text = "label3";
-            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBox4.Location = new System.Drawing.Point(4, 88);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(98, 21);
+            this.textBox4.TabIndex = 5;
             // 
-            // idLabel
+            // textBox3
             // 
-            this.idLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(109, 59);
-            this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(96, 25);
-            this.idLabel.TabIndex = 2;
-            this.idLabel.Text = "label2";
-            this.idLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBox3.Location = new System.Drawing.Point(4, 62);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(98, 21);
+            this.textBox3.TabIndex = 4;
             // 
             // serverLabel
             // 
@@ -119,6 +106,13 @@ namespace AutoTradingSystem
             this.serverLabel.Text = "label1";
             this.serverLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(4, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(98, 21);
+            this.textBox1.TabIndex = 2;
+            // 
             // accountComboBox
             // 
             this.accountComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -130,12 +124,18 @@ namespace AutoTradingSystem
             this.accountComboBox.Size = new System.Drawing.Size(96, 20);
             this.accountComboBox.TabIndex = 2;
             // 
-            // textBox1
+            // idLabel
             // 
-            this.textBox1.Location = new System.Drawing.Point(4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(98, 21);
-            this.textBox1.TabIndex = 2;
+            this.idLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(109, 59);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(96, 25);
+            this.idLabel.TabIndex = 2;
+            this.idLabel.Text = "label2";
+            this.idLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox2
             // 
@@ -144,19 +144,18 @@ namespace AutoTradingSystem
             this.textBox2.Size = new System.Drawing.Size(98, 21);
             this.textBox2.TabIndex = 3;
             // 
-            // textBox3
+            // nameLabel
             // 
-            this.textBox3.Location = new System.Drawing.Point(4, 62);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(98, 21);
-            this.textBox3.TabIndex = 4;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(4, 88);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(98, 21);
-            this.textBox4.TabIndex = 5;
+            this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(109, 30);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(96, 28);
+            this.nameLabel.TabIndex = 2;
+            this.nameLabel.Text = "label3";
+            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormMain
             // 

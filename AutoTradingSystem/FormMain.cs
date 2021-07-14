@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AxKHOpenAPILib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,7 +27,7 @@ namespace AutoTradingSystem
         {
             if (e.nErrCode == 0) /// 이벤트 매개변수를 통해서 핸들러 함수를 받아옴
             {
-                string acountlist = axKHOpenAPI1.GetLoginInfo("ACCLIST"); // 로그인 정보 가져오기
+                string acountlist = axKHOpenAPI1.GetLoginInfo("ACCLIST"); // 계좌 정보 가져오기
                 string[] account = acountlist.Split(';');  // 계좌번호 문자열을 나눠 배열로 담음
 
                 for (int i = 0; i < account.Length; i++)
@@ -34,6 +35,12 @@ namespace AutoTradingSystem
                     accountComboBox.Items.Add(account[i]);
                 }
 
+                string userId = axKHOpenAPI1.GetLoginInfo("USER_ID");
+                string userName = axKHOpenAPI1.GetLoginInfo("USER_NAME");
+                string connectedServer = axKHOpenAPI1.GetLoginInfo("GetServerGubun");
+                idLabel.Text = userId;
+                nameLabel.Text = userName;
+                serverLabel.Text = connectedServer;
             }
             else
             {
