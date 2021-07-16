@@ -14,13 +14,8 @@ namespace AutoTradingSystem
     public partial class FormMain : Form
     {
         public FormMain()
-
         {
             InitializeComponent();
-            axKHOpenAPI1.CommConnect(); // 로그인 윈도우 띄우기
-            // 로그인 윈도우 띄우기 성공했을때 리턴 값으로 0을 반환
-            // 실패했을땐 음수 반환
-            axKHOpenAPI1.OnEventConnect += onEventConnect; // 이벤트 함수 호출
         }
 
         private void onEventConnect(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
@@ -46,6 +41,21 @@ namespace AutoTradingSystem
             {
                 MessageBox.Show("오류 발생");
             }
+        }
+
+        private void loginbutton_Click(object sender, EventArgs e)
+        {
+            axKHOpenAPI1.CommConnect(); // 로그인 윈도우 띄우기
+            // 로그인 윈도우 띄우기 성공했을때 리턴 값으로 0을 반환
+            // 실패했을땐 음수 반환
+            axKHOpenAPI1.OnEventConnect += onEventConnect; // 이벤트 함수 호출
+        }
+
+        private void 사용자계좌조회ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            Account account = new Account();
+            panel1.Controls.Add(account);
         }
     }
 }
