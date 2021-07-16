@@ -13,13 +13,18 @@ namespace AutoTradingSystem
 {
     public partial class FormMain : Form
     {
+        public event EventHandler UserInfo;
         public FormMain()
         {
             InitializeComponent();
         }
 
+   
         private void onEventConnect(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
         {
+            if (e.nErrCode == 0) // 0은 로그인 성공, 로그인에 성공하면 버튼 숨김
+                loginbutton.Hide();
+
             if (e.nErrCode == 0) /// 이벤트 매개변수를 통해서 핸들러 함수를 받아옴
             {
                 string acountlist = axKHOpenAPI1.GetLoginInfo("ACCLIST"); // 계좌 정보 가져오기
@@ -36,6 +41,10 @@ namespace AutoTradingSystem
                 idLabel.Text = userId;
                 nameLabel.Text = userName;
                 serverLabel.Text = connectedServer;
+
+                Model.userid = userId;
+                Model.username = userName;
+                Model.accountlist = account;
             }
             else
             {
@@ -45,17 +54,31 @@ namespace AutoTradingSystem
 
         private void loginbutton_Click(object sender, EventArgs e)
         {
-            axKHOpenAPI1.CommConnect(); // 로그인 윈도우 띄우기
+            GetLogin();
+        }
+        private void GetLogin()
+        {
+            int loginstatus = axKHOpenAPI1.CommConnect(); // 로그인 윈도우 띄우기
             // 로그인 윈도우 띄우기 성공했을때 리턴 값으로 0을 반환
-            // 실패했을땐 음수 반환
+            // 실패했을땐 음수 -1 반환
             axKHOpenAPI1.OnEventConnect += onEventConnect; // 이벤트 함수 호출
         }
-
         private void 사용자계좌조회ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
-            Account account = new Account();
-            panel1.Controls.Add(account);
+            if (Model.userid != null)
+            {
+                //  UserInfoArgs info = new UserInfoArgs();
+                panel1.Controls.Clear();
+                Account account = new Account();
+                panel1.Controls.Add(account);
+            }
+            else
+            {
+                MessageBox.Show("로그인 부터 하세요","로그인 필요",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // loginbutton_Click(sender, e);
+                GetLogin();
+            }
         }
+
     }
 }

@@ -15,11 +15,19 @@ namespace AutoTradingSystem
         public Account()
         {
             InitializeComponent();
+
+            idLabel.Text = Model.userid;
+            nameLabel.Text = Model.username;
+            serverLabel.Text = "정보 일부러 안넣음";
+
+
+            for (int i = 0; i < Model.accountlist.Length; i++)
+            {
+                accountComboBox.Items.Add(Model.accountlist[i]);
+
+            }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }
