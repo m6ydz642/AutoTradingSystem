@@ -16,7 +16,7 @@ namespace AutoTradingSystem
         private FormMain main;
         public Account()
         {
-          // 참조하는게 없어 호출을 못함
+            // 참조하는게 없어 호출을 못함
         }
 
         public Account(FormMain main, AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1)
@@ -31,7 +31,7 @@ namespace AutoTradingSystem
             idLabel.Text = Model.userid;
             nameLabel.Text = Model.username;
             serverLabel.Text = "정보 일부러 안넣음";
-            passwordTextBox.TextAlignChanged += encryptPassword;
+            passwordTextBox.TextChanged += encryptPassword;
 
             for (int i = 0; i < Model.accountlist.Length; i++)
             {
@@ -49,7 +49,7 @@ namespace AutoTradingSystem
 
         private void blanceCheckButton_Click(object sender, EventArgs e)
         {
-         //   _axKHOpenAPI1.SetInputValue("비밀번호", passwordTextBox.Text);
+            _axKHOpenAPI1.SetInputValue("비밀번호", passwordTextBox.Text);
         }
     }
 }
