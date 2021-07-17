@@ -39,6 +39,7 @@ namespace AutoTradingSystem
             this.nameLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.accountComboBox2 = new System.Windows.Forms.ComboBox();
             this.passwordlabel = new System.Windows.Forms.Label();
             this.accountlabel = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@ namespace AutoTradingSystem
             this.totalProfitLabel = new System.Windows.Forms.Label();
             this.totalEstimateLabel = new System.Windows.Forms.Label();
             this.blanceCheckButton = new System.Windows.Forms.Button();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -186,6 +186,13 @@ namespace AutoTradingSystem
             this.tableLayoutPanel2.Size = new System.Drawing.Size(209, 69);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Location = new System.Drawing.Point(104, 38);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(100, 21);
+            this.passwordTextBox.TabIndex = 6;
+            // 
             // accountComboBox2
             // 
             this.accountComboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -272,7 +279,7 @@ namespace AutoTradingSystem
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(98, 28);
             this.label9.TabIndex = 5;
-            this.label9.Text = "전체평가금액";
+            this.label9.Text = "전체 평가금액";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
@@ -363,13 +370,6 @@ namespace AutoTradingSystem
             this.blanceCheckButton.Text = "계좌 잔고 요청";
             this.blanceCheckButton.UseVisualStyleBackColor = false;
             this.blanceCheckButton.Click += new System.EventHandler(this.blanceCheckButton_Click);
-            // 
-            // passwordTextBox
-            // 
-            this.passwordTextBox.Location = new System.Drawing.Point(104, 38);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(100, 21);
-            this.passwordTextBox.TabIndex = 6;
             // 
             // Account
             // 

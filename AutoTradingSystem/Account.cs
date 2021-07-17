@@ -16,7 +16,7 @@ namespace AutoTradingSystem
         private FormMain main;
         public Account()
         {
-            // 참조하는게 없어 호출을 못함
+            // 참조하는게 없어 호출을 못함 (원래 같이 호출될텐데 ㅡㅡ;;) 
         }
 
         public Account(FormMain main, AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1)
@@ -32,13 +32,18 @@ namespace AutoTradingSystem
             nameLabel.Text = Model.username;
             serverLabel.Text = "정보 일부러 안넣음";
             passwordTextBox.TextChanged += encryptPassword;
-
+            _axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
             for (int i = 0; i < Model.accountlist.Length; i++)
             {
                 accountComboBox.Items.Add(Model.accountlist[i]);
 
             }
 
+        }
+
+        private void onReceiveTrData(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
+        {
+            object t = e.sScrNo;
         }
 
         private void encryptPassword(object sender, EventArgs e)
