@@ -199,7 +199,7 @@ namespace AutoTradingSystem
             // 사용자계좌조회ToolStripMenuItem
             // 
             this.사용자계좌조회ToolStripMenuItem.Name = "사용자계좌조회ToolStripMenuItem";
-            this.사용자계좌조회ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.사용자계좌조회ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.사용자계좌조회ToolStripMenuItem.Text = "사용자 계좌 조회";
             this.사용자계좌조회ToolStripMenuItem.Click += new System.EventHandler(this.사용자계좌조회ToolStripMenuItem_Click);
             // 

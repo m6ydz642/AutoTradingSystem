@@ -65,19 +65,19 @@ namespace AutoTradingSystem
         }
         private void 사용자계좌조회ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Model.userid != null)
-            {
+            /*if (Model.userid != null)
+            {*/
                 //  UserInfoArgs info = new UserInfoArgs();
                 panel1.Controls.Clear();
-                Account account = new Account();
+                Account account = new Account(this, axKHOpenAPI1); // usercontrol 호출할때 생성자로 값 전달
                 panel1.Controls.Add(account);
-            }
+           /* }
             else
             {
                 MessageBox.Show("로그인 부터 하세요","로그인 필요",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // loginbutton_Click(sender, e);
                 GetLogin();
-            }
+            }*/
         }
 
     }
