@@ -177,21 +177,23 @@ namespace AutoTradingSystem
             this.tableLayoutPanel2.Controls.Add(this.accountComboBox2, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.passwordlabel, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.accountlabel, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(50, 52);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 53);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(209, 69);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(247, 69);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(104, 38);
+            this.passwordTextBox.Location = new System.Drawing.Point(122, 38);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(100, 21);
+            this.passwordTextBox.ReadOnly = true;
+            this.passwordTextBox.Size = new System.Drawing.Size(121, 21);
             this.passwordTextBox.TabIndex = 6;
+            this.passwordTextBox.Text = "입력하지말고 클릭";
             // 
             // accountComboBox2
             // 
@@ -199,9 +201,9 @@ namespace AutoTradingSystem
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.accountComboBox2.FormattingEnabled = true;
-            this.accountComboBox2.Location = new System.Drawing.Point(104, 4);
+            this.accountComboBox2.Location = new System.Drawing.Point(122, 4);
             this.accountComboBox2.Name = "accountComboBox2";
-            this.accountComboBox2.Size = new System.Drawing.Size(101, 20);
+            this.accountComboBox2.Size = new System.Drawing.Size(121, 20);
             this.accountComboBox2.TabIndex = 2;
             // 
             // passwordlabel
@@ -212,7 +214,7 @@ namespace AutoTradingSystem
             this.passwordlabel.AutoSize = true;
             this.passwordlabel.Location = new System.Drawing.Point(4, 35);
             this.passwordlabel.Name = "passwordlabel";
-            this.passwordlabel.Size = new System.Drawing.Size(93, 33);
+            this.passwordlabel.Size = new System.Drawing.Size(111, 33);
             this.passwordlabel.TabIndex = 2;
             this.passwordlabel.Text = "비밀번호";
             this.passwordlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -225,7 +227,7 @@ namespace AutoTradingSystem
             this.accountlabel.AutoSize = true;
             this.accountlabel.Location = new System.Drawing.Point(4, 1);
             this.accountlabel.Name = "accountlabel";
-            this.accountlabel.Size = new System.Drawing.Size(93, 33);
+            this.accountlabel.Size = new System.Drawing.Size(111, 33);
             this.accountlabel.TabIndex = 3;
             this.accountlabel.Text = "계좌번호";
             this.accountlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,7 +247,7 @@ namespace AutoTradingSystem
             this.tableLayoutPanel3.Controls.Add(this.totalProfitRateLabel, 1, 3);
             this.tableLayoutPanel3.Controls.Add(this.totalProfitLabel, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.totalEstimateLabel, 1, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(50, 165);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(34, 160);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
