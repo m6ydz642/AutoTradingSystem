@@ -73,7 +73,7 @@ namespace AutoTradingSystem
             }
             catch (FormatException ex)
             {
-                MessageBox.Show("로그인정보가 없습니다"); // 로그인 정보 없으면 형변환 오류떠서 if문으로 안하고 그냥 try catch로 함
+                MessageBox.Show("기타 예외가 발생하였습니다 :  " + ex); // 로그인 정보 없으면 형변환 오류떠서 if문으로 안하고 그냥 try catch로 함
             }
            
         }

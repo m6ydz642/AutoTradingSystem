@@ -230,6 +230,7 @@ namespace AutoTradingSystem
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.axKHOpenAPI1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.Text = "키움증권 자동트레이딩";
