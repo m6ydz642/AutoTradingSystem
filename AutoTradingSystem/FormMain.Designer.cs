@@ -45,6 +45,7 @@ namespace AutoTradingSystem
             this.메뉴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.사용자계좌조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.종목검색ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -54,7 +55,7 @@ namespace AutoTradingSystem
             // axKHOpenAPI1
             // 
             this.axKHOpenAPI1.Enabled = true;
-            this.axKHOpenAPI1.Location = new System.Drawing.Point(125, 135);
+            this.axKHOpenAPI1.Location = new System.Drawing.Point(163, 112);
             this.axKHOpenAPI1.Name = "axKHOpenAPI1";
             this.axKHOpenAPI1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axKHOpenAPI1.OcxState")));
             this.axKHOpenAPI1.Size = new System.Drawing.Size(65, 20);
@@ -191,7 +192,8 @@ namespace AutoTradingSystem
             // 메뉴ToolStripMenuItem
             // 
             this.메뉴ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.사용자계좌조회ToolStripMenuItem});
+            this.사용자계좌조회ToolStripMenuItem,
+            this.종목검색ToolStripMenuItem});
             this.메뉴ToolStripMenuItem.Name = "메뉴ToolStripMenuItem";
             this.메뉴ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.메뉴ToolStripMenuItem.Text = "메뉴";
@@ -199,19 +201,26 @@ namespace AutoTradingSystem
             // 사용자계좌조회ToolStripMenuItem
             // 
             this.사용자계좌조회ToolStripMenuItem.Name = "사용자계좌조회ToolStripMenuItem";
-            this.사용자계좌조회ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.사용자계좌조회ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.사용자계좌조회ToolStripMenuItem.Text = "사용자 계좌 조회";
             this.사용자계좌조회ToolStripMenuItem.Click += new System.EventHandler(this.사용자계좌조회ToolStripMenuItem_Click);
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.loginbutton);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Controls.Add(this.axKHOpenAPI1);
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 421);
+            this.panel1.Size = new System.Drawing.Size(800, 427);
             this.panel1.TabIndex = 5;
+            // 
+            // 종목검색ToolStripMenuItem
+            // 
+            this.종목검색ToolStripMenuItem.Name = "종목검색ToolStripMenuItem";
+            this.종목검색ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.종목검색ToolStripMenuItem.Text = "종목검색";
+            this.종목검색ToolStripMenuItem.Click += new System.EventHandler(this.종목검색ToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -220,6 +229,7 @@ namespace AutoTradingSystem
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.axKHOpenAPI1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.Text = "키움증권 자동트레이딩";
@@ -251,6 +261,7 @@ namespace AutoTradingSystem
         private System.Windows.Forms.ToolStripMenuItem 메뉴ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 사용자계좌조회ToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem 종목검색ToolStripMenuItem;
     }
 }
 
