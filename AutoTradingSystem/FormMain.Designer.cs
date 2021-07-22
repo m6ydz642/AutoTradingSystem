@@ -218,8 +218,8 @@ namespace AutoTradingSystem
             // 종목검색ToolStripMenuItem
             // 
             this.종목검색ToolStripMenuItem.Name = "종목검색ToolStripMenuItem";
-            this.종목검색ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.종목검색ToolStripMenuItem.Text = "종목검색";
+            this.종목검색ToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.종목검색ToolStripMenuItem.Text = "종목검색 및 실시간 종목 조회";
             this.종목검색ToolStripMenuItem.Click += new System.EventHandler(this.종목검색ToolStripMenuItem_Click);
             // 
             // FormMain
