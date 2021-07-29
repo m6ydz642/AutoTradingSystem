@@ -44,8 +44,8 @@ namespace AutoTradingSystem
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.메뉴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.사용자계좌조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.종목검색ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -201,9 +201,16 @@ namespace AutoTradingSystem
             // 사용자계좌조회ToolStripMenuItem
             // 
             this.사용자계좌조회ToolStripMenuItem.Name = "사용자계좌조회ToolStripMenuItem";
-            this.사용자계좌조회ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.사용자계좌조회ToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.사용자계좌조회ToolStripMenuItem.Text = "사용자 계좌 조회";
             this.사용자계좌조회ToolStripMenuItem.Click += new System.EventHandler(this.사용자계좌조회ToolStripMenuItem_Click);
+            // 
+            // 종목검색ToolStripMenuItem
+            // 
+            this.종목검색ToolStripMenuItem.Name = "종목검색ToolStripMenuItem";
+            this.종목검색ToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.종목검색ToolStripMenuItem.Text = "종목검색 및 실시간 종목 조회";
+            this.종목검색ToolStripMenuItem.Click += new System.EventHandler(this.종목검색ToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -214,13 +221,6 @@ namespace AutoTradingSystem
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 427);
             this.panel1.TabIndex = 5;
-            // 
-            // 종목검색ToolStripMenuItem
-            // 
-            this.종목검색ToolStripMenuItem.Name = "종목검색ToolStripMenuItem";
-            this.종목검색ToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
-            this.종목검색ToolStripMenuItem.Text = "종목검색 및 실시간 종목 조회";
-            this.종목검색ToolStripMenuItem.Click += new System.EventHandler(this.종목검색ToolStripMenuItem_Click);
             // 
             // FormMain
             // 
