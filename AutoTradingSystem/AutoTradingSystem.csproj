@@ -67,6 +67,7 @@
     <Compile Include="AskingPrice.Designer.cs">
       <DependentUpon>AskingPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommomCode.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

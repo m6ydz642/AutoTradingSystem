@@ -119,6 +119,7 @@ namespace AutoTradingSystem
             this.stockSearchButton.TabIndex = 5;
             this.stockSearchButton.Text = "종목검색";
             this.stockSearchButton.UseVisualStyleBackColor = true;
+            this.stockSearchButton.Click += new System.EventHandler(this.stockSearchButton_Click);
             // 
             // volumeListLabel
             // 

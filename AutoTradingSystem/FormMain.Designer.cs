@@ -46,6 +46,7 @@ namespace AutoTradingSystem
             this.사용자계좌조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.종목검색ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.호가창조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -193,7 +194,8 @@ namespace AutoTradingSystem
             // 
             this.메뉴ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.사용자계좌조회ToolStripMenuItem,
-            this.종목검색ToolStripMenuItem});
+            this.종목검색ToolStripMenuItem,
+            this.호가창조회ToolStripMenuItem});
             this.메뉴ToolStripMenuItem.Name = "메뉴ToolStripMenuItem";
             this.메뉴ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.메뉴ToolStripMenuItem.Text = "메뉴";
@@ -221,6 +223,13 @@ namespace AutoTradingSystem
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 427);
             this.panel1.TabIndex = 5;
+            // 
+            // 호가창조회ToolStripMenuItem
+            // 
+            this.호가창조회ToolStripMenuItem.Name = "호가창조회ToolStripMenuItem";
+            this.호가창조회ToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.호가창조회ToolStripMenuItem.Text = "호가창 조회";
+            this.호가창조회ToolStripMenuItem.Click += new System.EventHandler(this.호가창조회ToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -263,6 +272,7 @@ namespace AutoTradingSystem
         private System.Windows.Forms.ToolStripMenuItem 사용자계좌조회ToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem 종목검색ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 호가창조회ToolStripMenuItem;
     }
 }
 

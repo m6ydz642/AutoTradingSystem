@@ -97,5 +97,22 @@ namespace AutoTradingSystem
                 GetLogin();
             }
         }
+
+        private void 호가창조회ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Model.userid != null)
+            {
+                panel1.Controls.Clear();
+                AskingPrice searchucv = new AskingPrice(axKHOpenAPI1); // usercontrol 호출할때 생성자로 값 전달
+                panel1.Controls.Add(searchucv);
+            }
+            else
+            {
+                MessageBox.Show("로그인 부터 하세요", "로그인 필요", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // loginbutton_Click(sender, e);
+                GetLogin();
+            }
+           
+        }
     }
 }

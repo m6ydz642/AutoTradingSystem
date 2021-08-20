@@ -201,6 +201,8 @@ namespace AutoTradingSystem
             // 
             // stockTextBox
             // 
+            this.stockTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.stockTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.stockTextBox.Location = new System.Drawing.Point(113, 40);
             this.stockTextBox.Name = "stockTextBox";
             this.stockTextBox.Size = new System.Drawing.Size(100, 21);

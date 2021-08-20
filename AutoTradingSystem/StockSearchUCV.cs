@@ -17,9 +17,12 @@ namespace AutoTradingSystem
         {
             InitializeComponent();
             currentStockCode = "";
+            commomcode = new CommomCode();
         }
-        List<stockInfo> _stockList;
+     //   List<stockInfo> _stockList;
         public string currentStockCode;
+        CommomCode commomcode;
+
 
         private AxKHOpenAPILib.AxKHOpenAPI _axKHOpenAPI1;
         private FormMain _main;
@@ -32,22 +35,26 @@ namespace AutoTradingSystem
             _axKHOpenAPI1.OnReceiveTrData += onReceiveTrData; // 종목검색 이벤트 함수 (비밀번호 입력후 계좌 잔고요청에 성공하면 정보를 받았기 때문에 호출됨)
             _axKHOpenAPI1.OnReceiveRealData += onReceiveRealData;// 실시간 종목검색 이벤트 함수 (실시간만 씀)
 
-            AutoCompleteStringCollection stockcollection = new AutoCompleteStringCollection(); // 자동완성 컬렉션 객체
+            /*          AutoCompleteStringCollection stockcollection = new AutoCompleteStringCollection(); // 자동완성 컬렉션 객체
 
-            string stockCode = axKHOpenAPI1.GetCodeListByMarket(null);
-            string[] stockCodeArray = stockCode.Split(';');
+                      string stockCode = axKHOpenAPI1.GetCodeListByMarket(null);
+                      string[] stockCodeArray = stockCode.Split(';');
 
-            // 종목 정보 리스트 담기
-            _stockList = new List<stockInfo>(); // 전역객체로 보냄
-            for (int i = 0; i < stockCodeArray.Length; i++)
-            {
-                _stockList.Add(new stockInfo(stockCodeArray[i], axKHOpenAPI1.GetMasterCodeName(stockCodeArray[i])));
-            }
-            for (int i = 0; i < _stockList.Count; i++)
-            {
-                stockcollection.Add(_stockList[i].stockName);
-            }
-            stockTextBox.AutoCompleteCustomSource = stockcollection; // 텍스트 박스로 보냄
+                      // 종목 정보 리스트 담기
+                      _stockList = new List<stockInfo>(); // 전역객체로 보냄
+                      for (int i = 0; i < stockCodeArray.Length; i++)
+                      {
+                          _stockList.Add(new stockInfo(stockCodeArray[i], axKHOpenAPI1.GetMasterCodeName(stockCodeArray[i])));
+                      }
+                      for (int i = 0; i < _stockList.Count; i++)
+                      {
+                          stockcollection.Add(_stockList[i].stockName);
+                      }
+                      stockTextBox.AutoCompleteCustomSource = stockcollection; // 텍스트 박스로 보냄
+            */
+            stockTextBox.AutoCompleteCustomSource = commomcode.getStockAutoTextBox(axKHOpenAPI1); // 자동완성 결과 텍스트 박스로 보냄
+
+
         }
 
         private void onReceiveRealData(object sender, _DKHOpenAPIEvents_OnReceiveRealDataEvent e)
@@ -109,12 +116,12 @@ namespace AutoTradingSystem
         private void stockSearchButton_Click(object sender, EventArgs e)
         {
             string searchStock = stockTextBox.Text;
-            int index = _stockList.FindIndex(o => o.stockName == searchStock);
+            int index = commomcode._stockList.FindIndex(o => o.stockName == searchStock);
             if (index == -1)
                 MessageBox.Show("자동완성 오류 종목명을 정확히 입력해주세요", "아쉽게도 자동완성오류");
             else
             {
-                string stockCode = _stockList[index].stockCode;
+                string stockCode = commomcode._stockList[index].stockCode;
                 currentStockCode = stockCode; // 실시간 코드 변수에 추가
                 // string stockCode = "005930";
                 _axKHOpenAPI1.SetInputValue("종목코드", stockCode);
