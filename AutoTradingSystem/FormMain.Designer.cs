@@ -45,8 +45,8 @@ namespace AutoTradingSystem
             this.메뉴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.사용자계좌조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.종목검색ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.호가창조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -186,7 +186,7 @@ namespace AutoTradingSystem
             this.메뉴ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(858, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -214,16 +214,6 @@ namespace AutoTradingSystem
             this.종목검색ToolStripMenuItem.Text = "종목검색 및 실시간 종목 조회";
             this.종목검색ToolStripMenuItem.Click += new System.EventHandler(this.종목검색ToolStripMenuItem_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.loginbutton);
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Location = new System.Drawing.Point(0, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 427);
-            this.panel1.TabIndex = 5;
-            // 
             // 호가창조회ToolStripMenuItem
             // 
             this.호가창조회ToolStripMenuItem.Name = "호가창조회ToolStripMenuItem";
@@ -231,11 +221,21 @@ namespace AutoTradingSystem
             this.호가창조회ToolStripMenuItem.Text = "호가창 조회";
             this.호가창조회ToolStripMenuItem.Click += new System.EventHandler(this.호가창조회ToolStripMenuItem_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.loginbutton);
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Location = new System.Drawing.Point(0, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(858, 493);
+            this.panel1.TabIndex = 5;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(858, 518);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.axKHOpenAPI1);
