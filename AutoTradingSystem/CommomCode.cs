@@ -29,5 +29,11 @@ namespace AutoTradingSystem
             }
             return stockcollection;
         }
+
+        public int getFindStockIndex(string stockText) 
+        {
+            int index = _stockList.FindIndex(o => o.stockName == stockText);
+            return index;
+        }
     }
 }

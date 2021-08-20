@@ -67,6 +67,12 @@
     <Compile Include="AskingPrice.Designer.cs">
       <DependentUpon>AskingPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuyingStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyingStock.Designer.cs">
+      <DependentUpon>BuyingStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommomCode.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AskingPrice.resx">
       <DependentUpon>AskingPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyingStock.resx">
+      <DependentUpon>BuyingStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

@@ -114,5 +114,21 @@ namespace AutoTradingSystem
             }
            
         }
+
+        private void 주식주문ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Model.userid != null)
+            {
+                panel1.Controls.Clear();
+                BuyingStock buying = new BuyingStock(axKHOpenAPI1); // usercontrol 호출할때 생성자로 값 전달
+                panel1.Controls.Add(buying);
+            }
+            else
+            {
+                MessageBox.Show("로그인 부터 하세요", "로그인 필요", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // loginbutton_Click(sender, e);
+                GetLogin();
+            }
+        }
     }
 }
