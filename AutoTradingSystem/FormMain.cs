@@ -55,9 +55,9 @@ namespace AutoTradingSystem
 
         private void loginbutton_Click(object sender, EventArgs e)
         {
-            GetLogin();
+            getLogin();
         }
-        private void GetLogin()
+        private void getLogin()
         {
             int loginstatus = axKHOpenAPI1.CommConnect(); // 로그인 윈도우 띄우기
             // 로그인 윈도우 띄우기 성공했을때 리턴 값으로 0을 반환
@@ -77,7 +77,7 @@ namespace AutoTradingSystem
              {
                  MessageBox.Show("로그인 부터 하세요","로그인 필요",MessageBoxButtons.OK, MessageBoxIcon.Error);
                  // loginbutton_Click(sender, e);
-                 GetLogin();
+                 getLogin();
              }
         }
 
@@ -94,7 +94,7 @@ namespace AutoTradingSystem
             {
                 MessageBox.Show("로그인 부터 하세요", "로그인 필요", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // loginbutton_Click(sender, e);
-                GetLogin();
+                getLogin();
             }
         }
 
@@ -110,7 +110,7 @@ namespace AutoTradingSystem
             {
                 MessageBox.Show("로그인 부터 하세요", "로그인 필요", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // loginbutton_Click(sender, e);
-                GetLogin();
+                getLogin();
             }
            
         }
@@ -127,7 +127,7 @@ namespace AutoTradingSystem
             {
                 MessageBox.Show("로그인 부터 하세요", "로그인 필요", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // loginbutton_Click(sender, e);
-                GetLogin();
+                getLogin();
             }
         }
     }
