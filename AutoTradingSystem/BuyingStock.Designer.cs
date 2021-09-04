@@ -44,11 +44,22 @@ namespace AutoTradingSystem
             this.orderComboBox = new System.Windows.Forms.ComboBox();
             this.numberNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.stockSearchButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.totalBalnce = new System.Windows.Forms.Label();
+            this.limitNumericUpDownLabel = new System.Windows.Forms.Label();
+            this.totalPurchase = new System.Windows.Forms.Label();
+            this.limitNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.setLimitButton = new System.Windows.Forms.Button();
+            this.clearLimitButton = new System.Windows.Forms.Button();
+            this.totalBalnceLabel = new System.Windows.Forms.Label();
+            this.totalPurchaseLabel = new System.Windows.Forms.Label();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberNumericUpDown)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.limitNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -241,26 +252,157 @@ namespace AutoTradingSystem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.stockSearchButton.Location = new System.Drawing.Point(345, 78);
             this.stockSearchButton.Name = "stockSearchButton";
-            this.stockSearchButton.Size = new System.Drawing.Size(63, 20);
+            this.stockSearchButton.Size = new System.Drawing.Size(95, 20);
             this.stockSearchButton.TabIndex = 7;
             this.stockSearchButton.Text = "종목검색";
             this.stockSearchButton.UseVisualStyleBackColor = true;
             this.stockSearchButton.Click += new System.EventHandler(this.stockSearchButton_Click);
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Window;
+            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.6087F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.3913F));
+            this.tableLayoutPanel2.Controls.Add(this.totalPurchaseLabel, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.clearLimitButton, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.setLimitButton, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.totalBalnce, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.limitNumericUpDownLabel, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.totalPurchase, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.limitNumericUpDown, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.totalBalnceLabel, 1, 1);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(678, 47);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.32203F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.67797F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(277, 121);
+            this.tableLayoutPanel2.TabIndex = 8;
+            // 
+            // totalBalnce
+            // 
+            this.totalBalnce.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.totalBalnce.AutoSize = true;
+            this.totalBalnce.Location = new System.Drawing.Point(4, 36);
+            this.totalBalnce.Name = "totalBalnce";
+            this.totalBalnce.Size = new System.Drawing.Size(83, 23);
+            this.totalBalnce.TabIndex = 7;
+            this.totalBalnce.Text = "종목이름";
+            this.totalBalnce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // limitNumericUpDownLabel
+            // 
+            this.limitNumericUpDownLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.limitNumericUpDownLabel.AutoSize = true;
+            this.limitNumericUpDownLabel.Location = new System.Drawing.Point(4, 60);
+            this.limitNumericUpDownLabel.Name = "limitNumericUpDownLabel";
+            this.limitNumericUpDownLabel.Size = new System.Drawing.Size(83, 25);
+            this.limitNumericUpDownLabel.TabIndex = 5;
+            this.limitNumericUpDownLabel.Text = "수량";
+            this.limitNumericUpDownLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // totalPurchase
+            // 
+            this.totalPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.totalPurchase.AutoSize = true;
+            this.totalPurchase.Location = new System.Drawing.Point(4, 1);
+            this.totalPurchase.Name = "totalPurchase";
+            this.totalPurchase.Size = new System.Drawing.Size(83, 34);
+            this.totalPurchase.TabIndex = 5;
+            this.totalPurchase.Text = "계좌번호";
+            this.totalPurchase.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // limitNumericUpDown
+            // 
+            this.limitNumericUpDown.Location = new System.Drawing.Point(94, 63);
+            this.limitNumericUpDown.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.limitNumericUpDown.Name = "limitNumericUpDown";
+            this.limitNumericUpDown.Size = new System.Drawing.Size(179, 21);
+            this.limitNumericUpDown.TabIndex = 11;
+            // 
+            // setLimitButton
+            // 
+            this.setLimitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.setLimitButton.Location = new System.Drawing.Point(4, 89);
+            this.setLimitButton.Name = "setLimitButton";
+            this.setLimitButton.Size = new System.Drawing.Size(83, 28);
+            this.setLimitButton.TabIndex = 12;
+            this.setLimitButton.Text = "매수제한설정";
+            this.setLimitButton.UseVisualStyleBackColor = true;
+            // 
+            // clearLimitButton
+            // 
+            this.clearLimitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.clearLimitButton.Location = new System.Drawing.Point(94, 89);
+            this.clearLimitButton.Name = "clearLimitButton";
+            this.clearLimitButton.Size = new System.Drawing.Size(179, 28);
+            this.clearLimitButton.TabIndex = 13;
+            this.clearLimitButton.Text = "매수제한해제";
+            this.clearLimitButton.UseVisualStyleBackColor = true;
+            // 
+            // totalBalnceLabel
+            // 
+            this.totalBalnceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.totalBalnceLabel.AutoSize = true;
+            this.totalBalnceLabel.Location = new System.Drawing.Point(94, 36);
+            this.totalBalnceLabel.Name = "totalBalnceLabel";
+            this.totalBalnceLabel.Size = new System.Drawing.Size(179, 23);
+            this.totalBalnceLabel.TabIndex = 14;
+            this.totalBalnceLabel.Text = "0";
+            this.totalBalnceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // totalPurchaseLabel
+            // 
+            this.totalPurchaseLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.totalPurchaseLabel.AutoSize = true;
+            this.totalPurchaseLabel.Location = new System.Drawing.Point(94, 1);
+            this.totalPurchaseLabel.Name = "totalPurchaseLabel";
+            this.totalPurchaseLabel.Size = new System.Drawing.Size(179, 34);
+            this.totalPurchaseLabel.TabIndex = 15;
+            this.totalPurchaseLabel.Text = "0";
+            this.totalPurchaseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // BuyingStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.stockSearchButton);
             this.Controls.Add(tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Name = "BuyingStock";
-            this.Size = new System.Drawing.Size(804, 364);
+            this.Size = new System.Drawing.Size(1016, 364);
             tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberNumericUpDown)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.limitNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,5 +423,14 @@ namespace AutoTradingSystem
         private System.Windows.Forms.Button sellButton;
         private System.Windows.Forms.Button stockSearchButton;
         private System.Windows.Forms.NumericUpDown priceNumericUpDown;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label totalPurchaseLabel;
+        private System.Windows.Forms.Button clearLimitButton;
+        private System.Windows.Forms.Button setLimitButton;
+        private System.Windows.Forms.Label totalBalnce;
+        private System.Windows.Forms.Label limitNumericUpDownLabel;
+        private System.Windows.Forms.Label totalPurchase;
+        private System.Windows.Forms.NumericUpDown limitNumericUpDown;
+        private System.Windows.Forms.Label totalBalnceLabel;
     }
 }

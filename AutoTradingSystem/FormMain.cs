@@ -146,21 +146,12 @@ namespace AutoTradingSystem
             CheckLogin_GetInstance("AutoTradingSystem.AskingPrice");
         }
 
-        private void 주식주문ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CheckLogin_GetInstance("AutoTradingSystem.BuyingStock");
-        }
-
         private void 주식매수ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // 아직 안만들어서 주식주문꺼 잠시 씀
             CheckLogin_GetInstance("AutoTradingSystem.BuyingStock");
         }
 
         #endregion
-
-
-
 
 
     }
