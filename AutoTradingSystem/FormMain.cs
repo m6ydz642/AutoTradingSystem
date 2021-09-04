@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,74 @@ namespace AutoTradingSystem
             InitializeComponent();
         }
 
-   
+
+        #region 사용자 정의 함수
+
+        /// <summary>
+        /// new 연산자를 대신하여 객체를 생성
+        /// </summary>
+        /// <param name="classname"></param>
+        public void CreateInstance(string classname)
+        {
+            Type type = Type.GetType(classname);
+
+            try
+            {
+                if (type == null)
+                {
+                    MessageBox.Show(type + "의 인스턴스가 발견되지 않았습니다 객체설정 문제입니다", "나도 모르는 오류");
+                    return;
+                }
+                else
+                {
+                    var args = new object[] { axKHOpenAPI1 };
+                    /* return Activator.CreateInstance(type, axKHOpenAPI1); // 인스턴스 생성 이렇게 해도 되고*/
+                    object createInstance = Activator.CreateInstance(type, args); // 인스턴스 생성 이렇게 해도 됨
+                    panel1.Controls.Clear();
+                    panel1.Controls.Add((Control)createInstance);
+
+                }
+            }
+              catch(MissingMethodException e) // 생성자에 파라메터 다르게 되어있어 안맞는 경우
+            {
+                object args = new object[] { this,axKHOpenAPI1 };
+                object createInstance = Activator.CreateInstance(type,  args); // 인스턴스 생성 이렇게 해도 됨
+                panel1.Controls.Clear();
+                panel1.Controls.Add((Control)createInstance);
+            }
+            
+        }
+
+        /// <summary>
+        /// 로그인 되어있으면 객체 생성
+        /// </summary>
+        /// <param name="classname"></param>
+        private void CheckLogin_GetInstance(string classname)
+        {
+            if (Model.userid != null)
+            {
+                CreateInstance(classname);
+            }
+            else
+            {
+                MessageBox.Show("로그인 부터 하세요", "로그인 필요", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GetLogin();
+            }
+          
+        }
+
+        private void GetLogin()
+        {
+            int loginstatus = axKHOpenAPI1.CommConnect(); // 로그인 윈도우 띄우기
+            // 로그인 윈도우 띄우기 성공했을때 리턴 값으로 0을 반환
+            // 실패했을땐 음수 -1 반환
+            axKHOpenAPI1.OnEventConnect += onEventConnect; // 이벤트 함수 호출
+        }
+
+        #endregion
+
+
+        #region C# 자체적인 이벤트 함수
         private void onEventConnect(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
         {
             if (e.nErrCode == 0) // 0은 로그인 성공, 로그인에 성공하면 버튼 숨김
@@ -53,82 +121,47 @@ namespace AutoTradingSystem
             }
         }
 
+
         private void loginbutton_Click(object sender, EventArgs e)
         {
-            getLogin();
+            GetLogin();
         }
-        private void getLogin()
-        {
-            int loginstatus = axKHOpenAPI1.CommConnect(); // 로그인 윈도우 띄우기
-            // 로그인 윈도우 띄우기 성공했을때 리턴 값으로 0을 반환
-            // 실패했을땐 음수 -1 반환
-            axKHOpenAPI1.OnEventConnect += onEventConnect; // 이벤트 함수 호출
-        }
+
         private void 사용자계좌조회ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Model.userid != null)
-            {
-                //  UserInfoArgs info = new UserInfoArgs();
-                panel1.Controls.Clear();
-                Account account = new Account(this, axKHOpenAPI1); // usercontrol 호출할때 생성자로 값 전달
-                panel1.Controls.Add(account);
-             }
-             else
-             {
-                 MessageBox.Show("로그인 부터 하세요","로그인 필요",MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 // loginbutton_Click(sender, e);
-                 getLogin();
-             }
+
+            CheckLogin_GetInstance("AutoTradingSystem.Account");
+
         }
 
         private void 종목검색ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Model.userid != null)
-            {
-                //  UserInfoArgs info = new UserInfoArgs();
-                panel1.Controls.Clear();
-                StockSearchUCV searchucv = new StockSearchUCV(this, axKHOpenAPI1); // usercontrol 호출할때 생성자로 값 전달
-                panel1.Controls.Add(searchucv);
-            }
-            else
-            {
-                MessageBox.Show("로그인 부터 하세요", "로그인 필요", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // loginbutton_Click(sender, e);
-                getLogin();
-            }
+
+            CheckLogin_GetInstance("AutoTradingSystem.AskingPrice");
+
         }
 
         private void 호가창조회ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Model.userid != null)
-            {
-                panel1.Controls.Clear();
-                AskingPrice searchucv = new AskingPrice(axKHOpenAPI1); // usercontrol 호출할때 생성자로 값 전달
-                panel1.Controls.Add(searchucv);
-            }
-            else
-            {
-                MessageBox.Show("로그인 부터 하세요", "로그인 필요", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // loginbutton_Click(sender, e);
-                getLogin();
-            }
-           
+            CheckLogin_GetInstance("AutoTradingSystem.AskingPrice");
         }
 
         private void 주식주문ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Model.userid != null)
-            {
-                panel1.Controls.Clear();
-                BuyingStock buying = new BuyingStock(axKHOpenAPI1); // usercontrol 호출할때 생성자로 값 전달
-                panel1.Controls.Add(buying);
-            }
-            else
-            {
-                MessageBox.Show("로그인 부터 하세요", "로그인 필요", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // loginbutton_Click(sender, e);
-                getLogin();
-            }
+            CheckLogin_GetInstance("AutoTradingSystem.BuyingStock");
         }
+
+        private void 주식매수ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 아직 안만들어서 주식주문꺼 잠시 씀
+            CheckLogin_GetInstance("AutoTradingSystem.BuyingStock");
+        }
+
+        #endregion
+
+
+
+
+
     }
 }
