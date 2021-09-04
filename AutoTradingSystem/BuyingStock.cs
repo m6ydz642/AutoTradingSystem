@@ -12,8 +12,9 @@ namespace AutoTradingSystem
 {
     public partial class BuyingStock : UserControl
     {
-        public string currentStockCode;
+        private string currentStockCode;
         CommomCode commomcode;
+        private long _buyingLimit;
 
         private AxKHOpenAPILib.AxKHOpenAPI _axKHOpenAPI1;
         public BuyingStock()
@@ -122,6 +123,33 @@ namespace AutoTradingSystem
                 }
             }
 
+        }
+
+        private void setLimitButton_Click(object sender, EventArgs e)
+        {
+           
+            if (long.Parse(limitNumericUpDown.Value.ToString()) > 0)
+            {
+                _buyingLimit = long.Parse(limitNumericUpDown.Value.ToString());
+                Console.WriteLine(_buyingLimit);
+                MessageBox.Show("금액제한 설정완료" + _buyingLimit + "원");
+            }
+            else
+            {
+                MessageBox.Show("매수제한 금액을 입력하세요");
+            }
+        }
+
+        private void clearLimitButton_Click(object sender, EventArgs e)
+        {
+            _buyingLimit  =0;
+            if (long.Parse(limitNumericUpDown.Value.ToString()) > 0)
+            {
+                _buyingLimit = long.Parse(limitNumericUpDown.Value.ToString());
+                Console.WriteLine(_buyingLimit);
+                MessageBox.Show("매수금액제한 해제 완료" + _buyingLimit + "원");
+
+            }
         }
     }
 }
