@@ -67,11 +67,11 @@
     <Compile Include="AskingPrice.Designer.cs">
       <DependentUpon>AskingPrice.cs</DependentUpon>
     </Compile>
-    <Compile Include="BuyingStock.cs">
+    <Compile Include="Buying_SellStock.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BuyingStock.Designer.cs">
-      <DependentUpon>BuyingStock.cs</DependentUpon>
+    <Compile Include="Buying_SellStock.Designer.cs">
+      <DependentUpon>Buying_SellStock.cs</DependentUpon>
     </Compile>
     <Compile Include="CommomCode.cs" />
     <Compile Include="FormMain.cs">
@@ -80,10 +80,11 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model.cs" />
+    <Compile Include="UserInfoModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="stockInfo.cs" />
+    <Compile Include="StockBalance.cs" />
+    <Compile Include="StockInfo.cs" />
     <Compile Include="StockSearchUCV.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,8 +98,8 @@
     <EmbeddedResource Include="AskingPrice.resx">
       <DependentUpon>AskingPrice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BuyingStock.resx">
-      <DependentUpon>BuyingStock.cs</DependentUpon>
+    <EmbeddedResource Include="Buying_SellStock.resx">
+      <DependentUpon>Buying_SellStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

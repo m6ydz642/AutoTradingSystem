@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace AutoTradingSystem
 {
-    class stockInfo
+    class StockInfo
     {
         public string stockCode;
         public string stockName;
-        public stockInfo(string code, string name)
+        public StockInfo(string code, string name)
         {
             this.stockCode = code;
             this.stockName = name;

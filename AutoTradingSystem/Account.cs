@@ -20,17 +20,17 @@ namespace AutoTradingSystem
             // 원래 기본생성자에 있어야 하는데 idLabel.text등 Main에서 객체 생성시  디자이너 호출(?) 을 못해 null 을 반환하기때문에 
             // 인자있는 생성자에서 생성할때 InitializeComponent()를 호출함
 
-            idLabel.Text = Model.userid;
-            nameLabel.Text = Model.username;
+            idLabel.Text = UserInfoModel.userid;
+            nameLabel.Text = UserInfoModel.username;
             serverLabel.Text = "정보 일부러 안넣음";
 
          //   passwordTextBox.TextChanged += encryptPassword; // 패스워드 표시 * 이벤트 함수
          // 키움증권 api에서 관리 하기때문에 왜 했는지 의문
           
-            for (int i = 0; i < Model.accountlist.Length; i++)
+            for (int i = 0; i < UserInfoModel.accountlist.Length; i++)
             {
-                accountComboBox.Items.Add(Model.accountlist[i]); // 오른쪽에 메인과 같은 콤보박스 
-                accountComboBox2.Items.Add(Model.accountlist[i]); // 계좌잔고요청 쪽에 콤보박스
+                accountComboBox.Items.Add(UserInfoModel.accountlist[i]); // 오른쪽에 메인과 같은 콤보박스 
+                accountComboBox2.Items.Add(UserInfoModel.accountlist[i]); // 계좌잔고요청 쪽에 콤보박스
 
 
             }

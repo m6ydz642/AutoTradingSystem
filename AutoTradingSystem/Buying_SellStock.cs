@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AxKHOpenAPILib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,29 +11,45 @@ using System.Windows.Forms;
 
 namespace AutoTradingSystem
 {
-    public partial class BuyingStock : UserControl
+    public partial class Buying_SellStock : UserControl
     {
         private string currentStockCode;
         CommomCode commomcode;
         private long _buyingLimit;
+        List<StockInfo> stockList;
+        List<StockBalance> stockBalanceList;
+        public string _accountNumber = string.Empty;
+
 
         private AxKHOpenAPILib.AxKHOpenAPI _axKHOpenAPI1;
-        public BuyingStock()
+        public Buying_SellStock()
         {
             InitializeComponent();
             commomcode = new CommomCode();
         }
 
-        public BuyingStock(AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1) : this()
+        public Buying_SellStock(AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1) : this()
         {
             _axKHOpenAPI1 = axKHOpenAPI1;
 
           //  axKHOpenAPI1.OnEventConnect += onEventConnect; // 이벤트 함수 호출
             axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
+            balanceDataGridView.SelectionChanged += conditionSearch; //조건식 검색
+            axKHOpenAPI1.OnReceiveTrCondition += onReceiveTrCondition; //조건식 검색결과
 
             stockTextBox.AutoCompleteCustomSource = commomcode.getStockAutoTextBox(axKHOpenAPI1); // 텍스트 박스로 보냄
             addUserInfo();
 
+        }
+
+        private void onReceiveTrCondition(object sender, _DKHOpenAPIEvents_OnReceiveTrConditionEvent e)
+        {
+          //  throw new NotImplementedException();
+        }
+
+        private void conditionSearch(object sender, EventArgs e)
+        {
+          //  throw new NotImplementedException();
         }
 
         private void addUserInfo()
@@ -40,9 +57,9 @@ namespace AutoTradingSystem
             orderComboBox.Items.Add("00:지정가".ToString());
             orderComboBox.Items.Add("03:시장가".ToString());
 
-            for (int i = 0; i < Model.accountlist.Length; i++)
+            for (int i = 0; i < UserInfoModel.accountlist.Length; i++)
             {
-                accountComboBox.Items.Add(Model.accountlist[i]);
+                accountComboBox.Items.Add(UserInfoModel.accountlist[i]);
             }
         }
 
@@ -95,6 +112,26 @@ namespace AutoTradingSystem
                 string stockPrice = _axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "현재가");
                 priceNumericUpDown.Value = long.Parse(stockPrice.Replace("-", ""));
             }
+            else if (e.sRQName == "계좌평가현황요청")
+            {
+                int count = _axKHOpenAPI1.GetRepeatCnt(e.sTrCode, e.sRQName);
+                stockBalanceList = new List<StockBalance>();
+                for (int i = 0; i < count; i++)
+                {
+                    string stockCode = _axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").TrimStart('0');
+                    string stockName = _axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
+                    long number = _axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "보유수량") == "" ?  0: long.Parse(_axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "보유수량"));
+                    long buyingMoney = _axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "매입금액") == "" ? 0 : long.Parse(_axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "매입금액"));
+                    long currentPrice = _axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "현재가") == "" ? 0 : long.Parse(_axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Replace("-", ""));
+                    long estimatedProfit = _axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "손익금액") == "" ? 0: long.Parse(_axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "손익금액"));
+                    double estimatedProfitRate = _axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "손익율") == "" ? 0: double.Parse(_axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "손익율"));
+
+
+                    stockBalanceList.Add(new StockBalance(stockCode, stockName, number, String.Format("{0:#,###}", buyingMoney), String.Format("{0:#,###}", currentPrice), estimatedProfit, String.Format("{0:f2}", estimatedProfitRate)));
+                }
+                balanceDataGridView.DataSource = stockBalanceList;
+            }
+
         }
 
         private void buyButton_Click(object sender, EventArgs e)
@@ -125,6 +162,12 @@ namespace AutoTradingSystem
 
         }
 
+        private void sellButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         private void setLimitButton_Click(object sender, EventArgs e)
         {
            
@@ -145,11 +188,23 @@ namespace AutoTradingSystem
             _buyingLimit  =0;
             if (long.Parse(limitNumericUpDown.Value.ToString()) > 0)
             {
-                _buyingLimit = long.Parse(limitNumericUpDown.Value.ToString());
+                _buyingLimit = limitNumericUpDown.Value.ToString() == "" ? 0: long.Parse(limitNumericUpDown.Value.ToString());
                 Console.WriteLine(_buyingLimit);
-                MessageBox.Show("매수금액제한 해제 완료" + _buyingLimit + "원");
+                MessageBox.Show("매수금액제한 해제 완료 " + _buyingLimit + "원");
 
             }
+        }
+
+        private void balanceCheckButton_Click(object sender, EventArgs e)
+        {
+            _accountNumber = accountComboBox.Text;
+            string password = string.Empty;
+
+            _axKHOpenAPI1.SetInputValue("계좌번호", _accountNumber);
+            _axKHOpenAPI1.SetInputValue("비밀번호", password);
+            _axKHOpenAPI1.SetInputValue("상장폐지조회구분", "0");
+            _axKHOpenAPI1.SetInputValue("비밀번호입력매체구분", "00");
+            _axKHOpenAPI1.CommRqData("계좌평가현황요청", "opw00004", 0, "0004");
         }
     }
 }

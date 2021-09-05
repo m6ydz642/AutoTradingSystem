@@ -30,14 +30,14 @@ namespace AutoTradingSystem
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.volumeListLabel = new System.Windows.Forms.Label();
+            this.volumeListBox = new System.Windows.Forms.ListBox();
             this.stockSearchButton = new System.Windows.Forms.Button();
+            this.priceListBox = new System.Windows.Forms.ListBox();
             this.stockTextBox = new System.Windows.Forms.TextBox();
             this.priceLabel = new System.Windows.Forms.Label();
-            this.priceListLabel = new System.Windows.Forms.Label();
             this.upDownRateLabel = new System.Windows.Forms.Label();
-            this.priceListBox = new System.Windows.Forms.ListBox();
-            this.volumeListBox = new System.Windows.Forms.ListBox();
+            this.volumeListLabel = new System.Windows.Forms.Label();
+            this.priceListLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,17 +64,18 @@ namespace AutoTradingSystem
             this.tableLayoutPanel1.Size = new System.Drawing.Size(316, 415);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // volumeListLabel
+            // volumeListBox
             // 
-            this.volumeListLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.volumeListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.volumeListLabel.AutoSize = true;
-            this.volumeListLabel.Location = new System.Drawing.Point(463, 52);
-            this.volumeListLabel.Name = "volumeListLabel";
-            this.volumeListLabel.Size = new System.Drawing.Size(0, 12);
-            this.volumeListLabel.TabIndex = 6;
-            this.volumeListLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.volumeListBox.FormattingEnabled = true;
+            this.volumeListBox.ItemHeight = 12;
+            this.volumeListBox.Location = new System.Drawing.Point(161, 52);
+            this.volumeListBox.Margin = new System.Windows.Forms.Padding(0);
+            this.volumeListBox.Name = "volumeListBox";
+            this.volumeListBox.Size = new System.Drawing.Size(154, 352);
+            this.volumeListBox.TabIndex = 6;
             // 
             // stockSearchButton
             // 
@@ -85,6 +86,19 @@ namespace AutoTradingSystem
             this.stockSearchButton.Text = "종목검색";
             this.stockSearchButton.UseVisualStyleBackColor = true;
             this.stockSearchButton.Click += new System.EventHandler(this.stockSearchButton_Click);
+            // 
+            // priceListBox
+            // 
+            this.priceListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.priceListBox.FormattingEnabled = true;
+            this.priceListBox.ItemHeight = 12;
+            this.priceListBox.Location = new System.Drawing.Point(1, 52);
+            this.priceListBox.Margin = new System.Windows.Forms.Padding(0);
+            this.priceListBox.Name = "priceListBox";
+            this.priceListBox.Size = new System.Drawing.Size(159, 352);
+            this.priceListBox.TabIndex = 4;
             // 
             // stockTextBox
             // 
@@ -109,18 +123,6 @@ namespace AutoTradingSystem
             this.priceLabel.Text = "0";
             this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // priceListLabel
-            // 
-            this.priceListLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.priceListLabel.AutoSize = true;
-            this.priceListLabel.Location = new System.Drawing.Point(404, 72);
-            this.priceListLabel.Name = "priceListLabel";
-            this.priceListLabel.Size = new System.Drawing.Size(0, 12);
-            this.priceListLabel.TabIndex = 5;
-            this.priceListLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // upDownRateLabel
             // 
             this.upDownRateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -135,31 +137,29 @@ namespace AutoTradingSystem
             this.upDownRateLabel.Text = "0";
             this.upDownRateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // priceListBox
+            // volumeListLabel
             // 
-            this.priceListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.volumeListLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.priceListBox.FormattingEnabled = true;
-            this.priceListBox.ItemHeight = 12;
-            this.priceListBox.Location = new System.Drawing.Point(1, 52);
-            this.priceListBox.Margin = new System.Windows.Forms.Padding(0);
-            this.priceListBox.Name = "priceListBox";
-            this.priceListBox.Size = new System.Drawing.Size(159, 352);
-            this.priceListBox.TabIndex = 4;
+            this.volumeListLabel.AutoSize = true;
+            this.volumeListLabel.Location = new System.Drawing.Point(463, 52);
+            this.volumeListLabel.Name = "volumeListLabel";
+            this.volumeListLabel.Size = new System.Drawing.Size(0, 12);
+            this.volumeListLabel.TabIndex = 6;
+            this.volumeListLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // volumeListBox
+            // priceListLabel
             // 
-            this.volumeListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.priceListLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.volumeListBox.FormattingEnabled = true;
-            this.volumeListBox.ItemHeight = 12;
-            this.volumeListBox.Location = new System.Drawing.Point(161, 52);
-            this.volumeListBox.Margin = new System.Windows.Forms.Padding(0);
-            this.volumeListBox.Name = "volumeListBox";
-            this.volumeListBox.Size = new System.Drawing.Size(154, 352);
-            this.volumeListBox.TabIndex = 6;
+            this.priceListLabel.AutoSize = true;
+            this.priceListLabel.Location = new System.Drawing.Point(404, 72);
+            this.priceListLabel.Name = "priceListLabel";
+            this.priceListLabel.Size = new System.Drawing.Size(0, 12);
+            this.priceListLabel.TabIndex = 5;
+            this.priceListLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AskingPrice
             // 

@@ -9,7 +9,7 @@ namespace AutoTradingSystem
 {
     class CommomCode
     {
-        public List<stockInfo> _stockList;
+        public List<StockInfo> _stockList;
        
         public AutoCompleteStringCollection getStockAutoTextBox(AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1)
         {
@@ -18,10 +18,10 @@ namespace AutoTradingSystem
 
             // 종목 정보 리스트 담기
             AutoCompleteStringCollection stockcollection = new AutoCompleteStringCollection(); // 자동완성 컬렉션 객체
-            _stockList = new List<stockInfo>(); // 전역객체로 보냄
+            _stockList = new List<StockInfo>(); // 전역객체로 보냄
             for (int i = 0; i < stockCodeArray.Length; i++)
             {
-                _stockList.Add(new stockInfo(stockCodeArray[i], axKHOpenAPI1.GetMasterCodeName(stockCodeArray[i])));
+                _stockList.Add(new StockInfo(stockCodeArray[i], axKHOpenAPI1.GetMasterCodeName(stockCodeArray[i])));
             }
             for (int i = 0; i < _stockList.Count; i++)
             {

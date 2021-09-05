@@ -35,7 +35,8 @@ namespace AutoTradingSystem
             {
                 if (type == null)
                 {
-                    MessageBox.Show(type + "의 인스턴스가 발견되지 않았습니다 객체설정 문제입니다", "나도 모르는 오류");
+                    MessageBox.Show(type + "의 인스턴스가 발견되지 않았습니다 \r\nMainForm에서 객체설정이" +
+                        "되어있지 않습니다 객체설정 문제입니다", "객체 오류");
                     return;
                 }
                 else
@@ -64,7 +65,7 @@ namespace AutoTradingSystem
         /// <param name="classname"></param>
         private void CheckLogin_GetInstance(string classname)
         {
-            if (Model.userid != null)
+            if (UserInfoModel.userid != null)
             {
                 CreateInstance(classname);
             }
@@ -110,9 +111,9 @@ namespace AutoTradingSystem
                 nameLabel.Text = userName;
                 serverLabel.Text = connectedServer;
 
-                Model.userid = userId;
-                Model.username = userName;
-                Model.accountlist = account;
+                UserInfoModel.userid = userId;
+                UserInfoModel.username = userName;
+                UserInfoModel.accountlist = account;
 
             }
             else
@@ -146,13 +147,14 @@ namespace AutoTradingSystem
             CheckLogin_GetInstance("AutoTradingSystem.AskingPrice");
         }
 
-        private void 주식매수ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 주식매수_주식매도ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CheckLogin_GetInstance("AutoTradingSystem.BuyingStock");
+            CheckLogin_GetInstance("AutoTradingSystem.Buying_SellStock");
         }
+
 
         #endregion
 
-
+      
     }
 }

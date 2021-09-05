@@ -46,7 +46,7 @@ namespace AutoTradingSystem
             this.사용자계좌조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.종목검색ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.호가창조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.주식매수ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.주식매수_주식매도ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -187,7 +187,7 @@ namespace AutoTradingSystem
             this.메뉴ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(858, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1058, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -197,7 +197,7 @@ namespace AutoTradingSystem
             this.사용자계좌조회ToolStripMenuItem,
             this.종목검색ToolStripMenuItem,
             this.호가창조회ToolStripMenuItem,
-            this.주식매수ToolStripMenuItem});
+            this.주식매수_주식매도ToolStripMenuItem});
             this.메뉴ToolStripMenuItem.Name = "메뉴ToolStripMenuItem";
             this.메뉴ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.메뉴ToolStripMenuItem.Text = "메뉴";
@@ -223,12 +223,12 @@ namespace AutoTradingSystem
             this.호가창조회ToolStripMenuItem.Text = "호가창 조회";
             this.호가창조회ToolStripMenuItem.Click += new System.EventHandler(this.호가창조회ToolStripMenuItem_Click);
             // 
-            // 주식매수ToolStripMenuItem
+            // 주식매수_주식매도ToolStripMenuItem
             // 
-            this.주식매수ToolStripMenuItem.Name = "주식매수ToolStripMenuItem";
-            this.주식매수ToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
-            this.주식매수ToolStripMenuItem.Text = "주식매수";
-            this.주식매수ToolStripMenuItem.Click += new System.EventHandler(this.주식매수ToolStripMenuItem_Click);
+            this.주식매수_주식매도ToolStripMenuItem.Name = "주식매수_주식매도ToolStripMenuItem";
+            this.주식매수_주식매도ToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.주식매수_주식매도ToolStripMenuItem.Text = "주식매수_주식매도";
+            this.주식매수_주식매도ToolStripMenuItem.Click += new System.EventHandler(this.주식매수_주식매도ToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -237,14 +237,14 @@ namespace AutoTradingSystem
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(858, 493);
+            this.panel1.Size = new System.Drawing.Size(1058, 493);
             this.panel1.TabIndex = 5;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 518);
+            this.ClientSize = new System.Drawing.Size(1058, 518);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.axKHOpenAPI1);
@@ -283,7 +283,7 @@ namespace AutoTradingSystem
         private System.Windows.Forms.ToolStripMenuItem 종목검색ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 호가창조회ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 주식주문ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 주식매수ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 주식매수_주식매도ToolStripMenuItem;
     }
 }
 

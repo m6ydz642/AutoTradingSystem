@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace AutoTradingSystem
 {
-    static public class Model
+    static public class UserInfoModel
     {
         public static string userid { get; set; }
         public static string username { get; set; }
         public static string[] accountlist { get; set; }
     }
+  
 }
