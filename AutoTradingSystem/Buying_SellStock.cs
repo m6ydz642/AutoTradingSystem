@@ -165,6 +165,15 @@ namespace AutoTradingSystem
 
         private void sellButton_Click(object sender, EventArgs e)
         {
+            string accountCode = accountComboBox.Text;
+            int rowIndex = balanceDataGridView.SelectedCells[0].RowIndex;
+            int stockQty = int.Parse(balanceDataGridView["수량", rowIndex].Value.ToString());
+            string stockCode = balanceDataGridView["종목코드", rowIndex].Value.ToString().Trim().Replace("A", "");
+
+            int stockPrice = int.Parse(priceNumericUpDown.Value.ToString());
+            string[] orderCombo = orderComboBox.Text.Split(':');
+
+            _axKHOpenAPI1.SendOrder("종목신규매도", "8289", accountCode, 2, stockCode, stockQty, stockPrice, orderCombo[0], "");
 
         }
 
