@@ -51,12 +51,26 @@ namespace AutoTradingSystem
             }
               catch(MissingMethodException e) // 생성자에 파라메터 다르게 되어있어 안맞는 경우
             {
-                object args = new object[] { this,axKHOpenAPI1 };
-                object createInstance = Activator.CreateInstance(type,  args); // 인스턴스 생성 이렇게 해도 됨
-                panel1.Controls.Clear();
-                panel1.Controls.Add((Control)createInstance);
+                if (this is FormMain formMain) // formMain에서 생성된 객체인지 확인
+                {
+                    // object args = new object[] { axKHOpenAPI1, this }; // 생성자 배열로 전달달하니 안됨
+                    object createInstance = Activator.CreateInstance(type, axKHOpenAPI1, this); // 인스턴스 생성 이렇게 해도 됨
+                    panel1.Controls.Clear();
+                    panel1.Controls.Add((Control)createInstance);
+                }
+                else
+                {
+                        formMain = new FormMain();
+                        object args = new object[] { axKHOpenAPI1, formMain };
+                        object createInstance = Activator.CreateInstance(type, args); // 인스턴스 생성 이렇게 해도 됨
+                        panel1.Controls.Clear();
+                        panel1.Controls.Add((Control)createInstance);
+                    
+                }
             }
-            
+
+    
+
         }
 
         /// <summary>

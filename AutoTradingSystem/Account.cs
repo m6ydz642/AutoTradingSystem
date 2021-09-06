@@ -39,7 +39,7 @@ namespace AutoTradingSystem
 
         }
 
-        public Account(FormMain main, AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1) : this() // 동시에 기본생성자 호출
+        public Account(AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1, FormMain main) : this() // 동시에 기본생성자 호출
         {
     
             _axKHOpenAPI1 = axKHOpenAPI1;

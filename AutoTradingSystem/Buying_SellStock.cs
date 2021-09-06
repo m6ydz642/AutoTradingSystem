@@ -39,6 +39,7 @@ namespace AutoTradingSystem
 
             stockTextBox.AutoCompleteCustomSource = commomcode.getStockAutoTextBox(axKHOpenAPI1); // 텍스트 박스로 보냄
             addUserInfo();
+            accountComboBox.SelectedIndex = 0;
 
         }
 
@@ -185,10 +186,11 @@ namespace AutoTradingSystem
 
         private void clearLimitButton_Click(object sender, EventArgs e)
         {
-            _buyingLimit  =0;
+          
             if (long.Parse(limitNumericUpDown.Value.ToString()) > 0)
             {
-                _buyingLimit = limitNumericUpDown.Value.ToString() == "" ? 0: long.Parse(limitNumericUpDown.Value.ToString());
+                // _buyingLimit = limitNumericUpDown.Value.ToString() == "" ? 0: long.Parse(limitNumericUpDown.Value.ToString());
+                _buyingLimit = 0;
                 Console.WriteLine(_buyingLimit);
                 MessageBox.Show("매수금액제한 해제 완료 " + _buyingLimit + "원");
 

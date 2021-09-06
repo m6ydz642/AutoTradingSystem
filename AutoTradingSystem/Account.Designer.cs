@@ -382,7 +382,7 @@ namespace AutoTradingSystem
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Account";
-            this.Size = new System.Drawing.Size(705, 394);
+            this.Size = new System.Drawing.Size(827, 394);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
