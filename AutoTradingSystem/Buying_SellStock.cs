@@ -19,7 +19,7 @@ namespace AutoTradingSystem
         List<StockInfo> stockList;
         List<StockBalance> stockBalanceList;
         public string _accountNumber = string.Empty;
-
+        private List<Outstanding> _outstandingList;
 
         private AxKHOpenAPILib.AxKHOpenAPI _axKHOpenAPI1;
         public Buying_SellStock()
@@ -132,6 +132,28 @@ namespace AutoTradingSystem
                 }
                 balanceDataGridView.DataSource = stockBalanceList;
             }
+            else if (e.sRQName == "실시간미체결요청")
+            {
+                int count = _axKHOpenAPI1.GetRepeatCnt(e.sTrCode, e.sRQName);
+                _outstandingList = new List<Outstanding>();
+                for (int i = 0; i < count; i++)
+                {
+                    string orderCode = int.Parse(_axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "주문번호")).ToString();
+                    string stockCode = _axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
+                    string stockName = _axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
+                    int orderNumber = int.Parse(_axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "주문수량"));
+                    int orderPrice = int.Parse(_axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "주문가격"));
+                    int outstandingNumber = int.Parse(_axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "미체결수량"));
+                    int currentPrice = int.Parse(_axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Replace("-", ""));
+                    string orderGubun = _axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "주문구분").Trim();
+                    string orderTime = _axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "시간").Trim();
+
+                    _outstandingList.Add(new Outstanding(orderCode, stockCode, stockName, orderNumber, String.Format("{0:#,###}", orderPrice), String.Format("{0:#,###}", currentPrice), outstandingNumber, orderGubun, orderTime));
+
+                }
+                outstandingDataGridView.DataSource = _outstandingList;
+            }
+
 
         }
 

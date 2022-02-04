@@ -53,8 +53,16 @@ namespace AutoTradingSystem
             this.totalPurchase = new System.Windows.Forms.Label();
             this.limitNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.totalBalnceLabel = new System.Windows.Forms.Label();
-            this.balanceDataGridView = new System.Windows.Forms.DataGridView();
             this.balanceCheckButton = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.outstandingDataGridView = new System.Windows.Forms.DataGridView();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.balanceDataGridView = new System.Windows.Forms.DataGridView();
+            this.balance = new System.Windows.Forms.TabControl();
+            this.buyFixButton = new System.Windows.Forms.Button();
+            this.sellFixButton = new System.Windows.Forms.Button();
+            this.balanceListBox = new System.Windows.Forms.ListBox();
+            this.alertListBox = new System.Windows.Forms.ListBox();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -62,7 +70,11 @@ namespace AutoTradingSystem
             ((System.ComponentModel.ISupportInitialize)(this.numberNumericUpDown)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.limitNumericUpDown)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.outstandingDataGridView)).BeginInit();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.balanceDataGridView)).BeginInit();
+            this.balance.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -72,6 +84,8 @@ namespace AutoTradingSystem
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.96154F));
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.03846F));
+            tableLayoutPanel1.Controls.Add(this.sellFixButton, 1, 1);
+            tableLayoutPanel1.Controls.Add(this.buyFixButton, 0, 1);
             tableLayoutPanel1.Controls.Add(this.buyButton, 0, 0);
             tableLayoutPanel1.Controls.Add(this.sellButton, 1, 0);
             tableLayoutPanel1.Location = new System.Drawing.Point(446, 47);
@@ -391,31 +405,112 @@ namespace AutoTradingSystem
             this.totalBalnceLabel.Text = "0";
             this.totalBalnceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // balanceDataGridView
-            // 
-            this.balanceDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.balanceDataGridView.Location = new System.Drawing.Point(69, 230);
-            this.balanceDataGridView.Name = "balanceDataGridView";
-            this.balanceDataGridView.RowTemplate.Height = 23;
-            this.balanceDataGridView.Size = new System.Drawing.Size(953, 173);
-            this.balanceDataGridView.TabIndex = 9;
-            // 
             // balanceCheckButton
             // 
-            this.balanceCheckButton.Location = new System.Drawing.Point(948, 200);
+            this.balanceCheckButton.Location = new System.Drawing.Point(559, 179);
             this.balanceCheckButton.Name = "balanceCheckButton";
-            this.balanceCheckButton.Size = new System.Drawing.Size(74, 24);
+            this.balanceCheckButton.Size = new System.Drawing.Size(99, 45);
             this.balanceCheckButton.TabIndex = 10;
             this.balanceCheckButton.Text = "잔고확인";
             this.balanceCheckButton.UseVisualStyleBackColor = true;
             this.balanceCheckButton.Click += new System.EventHandler(this.balanceCheckButton_Click);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.outstandingDataGridView);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(585, 222);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // outstandingDataGridView
+            // 
+            this.outstandingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.outstandingDataGridView.Location = new System.Drawing.Point(-1, 0);
+            this.outstandingDataGridView.Name = "outstandingDataGridView";
+            this.outstandingDataGridView.RowHeadersVisible = false;
+            this.outstandingDataGridView.RowTemplate.Height = 23;
+            this.outstandingDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.outstandingDataGridView.Size = new System.Drawing.Size(586, 225);
+            this.outstandingDataGridView.TabIndex = 11;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.balanceDataGridView);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(585, 222);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // balanceDataGridView
+            // 
+            this.balanceDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.balanceDataGridView.Location = new System.Drawing.Point(3, 0);
+            this.balanceDataGridView.Name = "balanceDataGridView";
+            this.balanceDataGridView.RowTemplate.Height = 23;
+            this.balanceDataGridView.Size = new System.Drawing.Size(582, 222);
+            this.balanceDataGridView.TabIndex = 9;
+            // 
+            // balance
+            // 
+            this.balance.Controls.Add(this.tabPage1);
+            this.balance.Controls.Add(this.tabPage2);
+            this.balance.Location = new System.Drawing.Point(69, 230);
+            this.balance.Name = "balance";
+            this.balance.SelectedIndex = 0;
+            this.balance.Size = new System.Drawing.Size(593, 248);
+            this.balance.TabIndex = 12;
+            // 
+            // buyFixButton
+            // 
+            this.buyFixButton.Location = new System.Drawing.Point(4, 50);
+            this.buyFixButton.Name = "buyFixButton";
+            this.buyFixButton.Size = new System.Drawing.Size(102, 39);
+            this.buyFixButton.TabIndex = 13;
+            this.buyFixButton.Text = "매수정정";
+            this.buyFixButton.UseVisualStyleBackColor = true;
+            // 
+            // sellFixButton
+            // 
+            this.sellFixButton.Location = new System.Drawing.Point(113, 50);
+            this.sellFixButton.Name = "sellFixButton";
+            this.sellFixButton.Size = new System.Drawing.Size(99, 39);
+            this.sellFixButton.TabIndex = 14;
+            this.sellFixButton.Text = "매도정정";
+            this.sellFixButton.UseVisualStyleBackColor = true;
+            // 
+            // balanceListBox
+            // 
+            this.balanceListBox.FormattingEnabled = true;
+            this.balanceListBox.ItemHeight = 12;
+            this.balanceListBox.Location = new System.Drawing.Point(678, 198);
+            this.balanceListBox.Name = "balanceListBox";
+            this.balanceListBox.Size = new System.Drawing.Size(452, 124);
+            this.balanceListBox.TabIndex = 13;
+            // 
+            // alertListBox
+            // 
+            this.alertListBox.FormattingEnabled = true;
+            this.alertListBox.ItemHeight = 12;
+            this.alertListBox.Location = new System.Drawing.Point(678, 341);
+            this.alertListBox.Name = "alertListBox";
+            this.alertListBox.Size = new System.Drawing.Size(452, 136);
+            this.alertListBox.TabIndex = 14;
+            // 
             // Buying_SellStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.alertListBox);
+            this.Controls.Add(this.balanceListBox);
+            this.Controls.Add(this.balance);
             this.Controls.Add(this.balanceCheckButton);
-            this.Controls.Add(this.balanceDataGridView);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.stockSearchButton);
             this.Controls.Add(tableLayoutPanel1);
@@ -430,7 +525,11 @@ namespace AutoTradingSystem
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.limitNumericUpDown)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.outstandingDataGridView)).EndInit();
+            this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.balanceDataGridView)).EndInit();
+            this.balance.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -460,7 +559,15 @@ namespace AutoTradingSystem
         private System.Windows.Forms.Label totalPurchase;
         private System.Windows.Forms.NumericUpDown limitNumericUpDown;
         private System.Windows.Forms.Label totalBalnceLabel;
-        private System.Windows.Forms.DataGridView balanceDataGridView;
         private System.Windows.Forms.Button balanceCheckButton;
+        private System.Windows.Forms.Button sellFixButton;
+        private System.Windows.Forms.Button buyFixButton;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView outstandingDataGridView;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView balanceDataGridView;
+        private System.Windows.Forms.TabControl balance;
+        private System.Windows.Forms.ListBox balanceListBox;
+        private System.Windows.Forms.ListBox alertListBox;
     }
 }
