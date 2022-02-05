@@ -36,21 +36,61 @@ namespace AutoTradingSystem
             axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
             balanceDataGridView.SelectionChanged += conditionSearch; //조건식 검색
             axKHOpenAPI1.OnReceiveTrCondition += onReceiveTrCondition; //조건식 검색결과
-
+            axKHOpenAPI1.OnReceiveChejanData += AxKHOpenAPI1_OnReceiveChejanData; ;
             stockTextBox.AutoCompleteCustomSource = commomcode.getStockAutoTextBox(axKHOpenAPI1); // 텍스트 박스로 보냄
             addUserInfo();
             accountComboBox.SelectedIndex = 0;
 
         }
 
+        private void AxKHOpenAPI1_OnReceiveChejanData(object sender, _DKHOpenAPIEvents_OnReceiveChejanDataEvent e)
+        {
+
+            if (e.sGubun == "0")//주문 접수 , 체결시
+            {
+                alertListBox.Items.Add("계좌번호 : " + _axKHOpenAPI1.GetChejanData(9201) + " | " + " 주문번호 : " + _axKHOpenAPI1.GetChejanData(9203));
+                alertListBox.Items.Add("주문상태 : " + _axKHOpenAPI1.GetChejanData(913) + " | " + " 종목명 : " + _axKHOpenAPI1.GetChejanData(302));
+                alertListBox.Items.Add("매매구분" + _axKHOpenAPI1.GetChejanData(906) + " | " + " 주문수량 : " + _axKHOpenAPI1.GetChejanData(900));
+
+                string orderTime = _axKHOpenAPI1.GetChejanData(908);
+                string orderHour = orderTime[0] + "" + orderTime[1];
+                string orderMinute = orderTime[2] + "" + orderTime[3];
+                string orderSecond = orderTime[4] + "" + orderTime[5];
+                long orderPrice = long.Parse(_axKHOpenAPI1.GetChejanData(901));
+
+                alertListBox.Items.Add("주문/체결시간 : " + orderHour + "시 " + orderMinute + "분 " + orderSecond + "초");
+                alertListBox.Items.Add("주문구분 : " + _axKHOpenAPI1.GetChejanData(905));
+                alertListBox.Items.Add("주문가격 : " + String.Format("{0:#,###}", orderPrice));
+                alertListBox.Items.Add("----------------------------------------------------------");
+
+
+            }
+            else if (e.sGubun == "1")//국내주식 잔고전달
+            {
+                string stockName = _axKHOpenAPI1.GetChejanData(302);
+                long currentPrice = long.Parse(_axKHOpenAPI1.GetChejanData(10).Replace("-", ""));
+
+                string profitRate = _axKHOpenAPI1.GetChejanData(8019);
+                long totalBuyingPrice = long.Parse(_axKHOpenAPI1.GetChejanData(932));
+                long profitMoney = long.Parse(_axKHOpenAPI1.GetChejanData(950));
+
+                balanceListBox.Items.Add("종목명 : " + stockName + " | 현재 종가 : " + String.Format("{0:#,###}", currentPrice));
+                balanceListBox.Items.Add("매입주문금액 : " + String.Format("{0:#,###}", totalBuyingPrice) + " | 금일 실현손익 : " + String.Format("{0:#,###}", profitMoney));
+                balanceListBox.Items.Add("금일 실현 손익율 : " + profitRate);
+                balanceListBox.Items.Add("----------------------------------------------------------");
+
+            }
+
+        }
+
         private void onReceiveTrCondition(object sender, _DKHOpenAPIEvents_OnReceiveTrConditionEvent e)
         {
-          //  throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void conditionSearch(object sender, EventArgs e)
         {
-          //  throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void addUserInfo()
@@ -182,11 +222,25 @@ namespace AutoTradingSystem
                     }
                 }
             }
+       
+
 
         }
 
         private void sellButton_Click(object sender, EventArgs e)
         {
+            if (sender.Equals(sellButton))
+            {
+                if (balanceDataGridView.SelectedCells[0] != null)
+                {
+                    int rowIndex2 = balanceDataGridView.SelectedCells[0].RowIndex;
+                    Console.WriteLine(rowIndex2);
+                    Console.WriteLine(stockBalanceList[rowIndex2].종목코드);
+
+                }
+
+            }
+
             string accountCode = accountComboBox.Text;
             int rowIndex = balanceDataGridView.SelectedCells[0].RowIndex;
             int stockQty = int.Parse(balanceDataGridView["수량", rowIndex].Value.ToString());
@@ -196,7 +250,7 @@ namespace AutoTradingSystem
             string[] orderCombo = orderComboBox.Text.Split(':');
 
             _axKHOpenAPI1.SendOrder("종목신규매도", "8289", accountCode, 2, stockCode, stockQty, stockPrice, orderCombo[0], "");
-
+           
         }
 
 

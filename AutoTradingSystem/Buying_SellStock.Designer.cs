@@ -30,6 +30,8 @@ namespace AutoTradingSystem
         private void InitializeComponent()
         {
             System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+            this.sellFixButton = new System.Windows.Forms.Button();
+            this.buyFixButton = new System.Windows.Forms.Button();
             this.buyButton = new System.Windows.Forms.Button();
             this.sellButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -59,8 +61,6 @@ namespace AutoTradingSystem
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.balanceDataGridView = new System.Windows.Forms.DataGridView();
             this.balance = new System.Windows.Forms.TabControl();
-            this.buyFixButton = new System.Windows.Forms.Button();
-            this.sellFixButton = new System.Windows.Forms.Button();
             this.balanceListBox = new System.Windows.Forms.ListBox();
             this.alertListBox = new System.Windows.Forms.ListBox();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -96,6 +96,24 @@ namespace AutoTradingSystem
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new System.Drawing.Size(216, 93);
             tableLayoutPanel1.TabIndex = 6;
+            // 
+            // sellFixButton
+            // 
+            this.sellFixButton.Location = new System.Drawing.Point(113, 50);
+            this.sellFixButton.Name = "sellFixButton";
+            this.sellFixButton.Size = new System.Drawing.Size(99, 39);
+            this.sellFixButton.TabIndex = 14;
+            this.sellFixButton.Text = "매도정정";
+            this.sellFixButton.UseVisualStyleBackColor = true;
+            // 
+            // buyFixButton
+            // 
+            this.buyFixButton.Location = new System.Drawing.Point(4, 50);
+            this.buyFixButton.Name = "buyFixButton";
+            this.buyFixButton.Size = new System.Drawing.Size(102, 39);
+            this.buyFixButton.TabIndex = 13;
+            this.buyFixButton.Text = "매수정정";
+            this.buyFixButton.UseVisualStyleBackColor = true;
             // 
             // buyButton
             // 
@@ -466,24 +484,6 @@ namespace AutoTradingSystem
             this.balance.SelectedIndex = 0;
             this.balance.Size = new System.Drawing.Size(593, 248);
             this.balance.TabIndex = 12;
-            // 
-            // buyFixButton
-            // 
-            this.buyFixButton.Location = new System.Drawing.Point(4, 50);
-            this.buyFixButton.Name = "buyFixButton";
-            this.buyFixButton.Size = new System.Drawing.Size(102, 39);
-            this.buyFixButton.TabIndex = 13;
-            this.buyFixButton.Text = "매수정정";
-            this.buyFixButton.UseVisualStyleBackColor = true;
-            // 
-            // sellFixButton
-            // 
-            this.sellFixButton.Location = new System.Drawing.Point(113, 50);
-            this.sellFixButton.Name = "sellFixButton";
-            this.sellFixButton.Size = new System.Drawing.Size(99, 39);
-            this.sellFixButton.TabIndex = 14;
-            this.sellFixButton.Text = "매도정정";
-            this.sellFixButton.UseVisualStyleBackColor = true;
             // 
             // balanceListBox
             // 
