@@ -25,7 +25,7 @@ namespace AutoTradingSystem
             serverLabel.Text = "정보 일부러 안넣음";
 
          //   passwordTextBox.TextChanged += encryptPassword; // 패스워드 표시 * 이벤트 함수
-         // 키움증권 api에서 관리 하기때문에 왜 했는지 의문
+         // 키움증권 api에서 관리 하는데 왜 했는지 의문
           
             for (int i = 0; i < UserInfoModel.accountlist.Length; i++)
             {
@@ -73,7 +73,8 @@ namespace AutoTradingSystem
             }
             catch (FormatException ex)
             {
-                MessageBox.Show("기타 예외가 발생하였습니다 :  " + ex); // 로그인 정보 없으면 형변환 오류떠서 if문으로 안하고 그냥 try catch로 함
+                MessageBox.Show("기타 예외가 발생하였습니다 \r\n(로그인 정보가 없어도 본 오류가 뜹니다) \r\n" + ex); 
+                // 로그인 정보 없으면 형변환 오류떠서 if문으로 안하고 그냥 try catch로 함
             }
            
         }
